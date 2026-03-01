@@ -1,0 +1,66 @@
+[project]
+name = "f1"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Carlos Oliveira",email = "chroliveira@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "streamlit (>=1.54.0,<2.0.0)",
+    "requests (>=2.32.5,<3.0.0)",
+    "pydantic (>=2.12.5,<3.0.0)",
+    "plotly (>=6.5.2,<7.0.0)",
+    "pandas (<3)",
+    "python-dotenv (>=1.2.2,<2.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "f1", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP", "N"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["f1"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=src/f1 --cov-report=term-missing --cov-fail-under=50"
+markers = ["integration: testes de integração com API externa"]
+
+[tool.taskipy.tasks]
+test = { cmd = "pytest tests/unit/", help = "Run unit tests with coverage" }
+test-all = { cmd = "pytest", help = "Run all tests (unit + integration)" }
+lint = { cmd = "ruff check .", help = "Check code style and lint errors" }
+lint-fix = { cmd = "ruff check . --fix", help = "Auto-fix lint errors" }
+format = { cmd = "ruff format .", help = "Format source code" }
+format-check = { cmd = "ruff format . --check", help = "Check formatting without modifying files" }
+docs = { cmd = "mkdocs serve", help = "Serve documentation locally at http://127.0.0.1:8000" }
+docs-build = { cmd = "mkdocs build", help = "Build static documentation site" }
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.2,<10.0.0)",
+    "pytest-cov (>=7.0.0,<8.0.0)",
+    "ruff (>=0.15.4,<0.16.0)",
+    "pytest-mock (>=3.15.1,<4.0.0)",
+    "pre-commit (>=4.5.1,<5.0.0)",
+    "taskipy (>=1.14.1,<2.0.0)",
+    "mkdocs-material (>=9.0.0,<10.0.0)"
+]

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(poetry --version)",
+      "Bash(poetry add streamlit requests pydantic plotly pandas python-dotenv)",
+      "Bash(poetry add \"streamlit\" \"requests\" \"pydantic\" \"plotly\" \"pandas<3\" \"python-dotenv\")",
+      "Bash(poetry add --group dev pytest pytest-cov ruff pytest-mock pre-commit)",
+      "Bash(python -c \"with open\\(''c:/Users/caiqu/projetos/F1/pyproject.toml'', ''rb''\\) as f: data=f.read\\(\\); print\\(data[:4].hex\\(\\)\\); print\\(repr\\(data[:20]\\)\\)\")",
+      "Bash(python -c \":*)",
+      "Bash(python -c \"f=open\\(''c:/Users/caiqu/projetos/F1/pyproject.toml'',''rb''\\);d=f.read\\(\\);f.close\\(\\);print\\(d[:4].hex\\(\\)\\)\")",
+      "Bash(poetry run python -c \":*)",
+      "Bash(poetry run pytest tests/unit/ -v)",
+      "Bash(poetry add --group dev taskipy)",
+      "Bash(poetry run task format-check)",
+      "Bash(poetry run task lint)",
+      "Bash(poetry run task test)"
+    ]
+  }
+}
