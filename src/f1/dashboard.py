@@ -61,7 +61,9 @@ def main() -> None:
         with st.expander(f"🏁 {meeting_name} — {circuit}, {country}"):
             with st.spinner("Carregando voltas..."):
                 try:
-                    entries = service.get_top_laps_for_meeting(meeting_key, session_name)
+                    entries = service.get_top_laps_for_meeting(
+                        meeting_key, session_name
+                    )
                 except Exception as exc:
                     st.error(f"Erro ao carregar dados: {exc}")
                     continue
