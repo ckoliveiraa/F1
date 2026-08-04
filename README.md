@@ -1,5 +1,6 @@
 # F1 Dashboard
 
+
 Dashboard interativo de Formula 1 desenvolvido com Streamlit, exibindo as 5 voltas mais rapidas por circuito usando dados em tempo real da API OpenF1.
 
 Este projeto foi criado como parte de uma aula pratica de Python, com foco em boas praticas de desenvolvimento: arquitetura em camadas, testes automatizados, linting e documentacao.
